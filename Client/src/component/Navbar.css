@@ -1,0 +1,26 @@
+.main-nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.navbar-color {
+    background: #5940D1;
+}
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 5%;
+}
+.x {
+    color: #00FF00;
+}
+.ure {
+    color: #FFFFFF;
+}
+.med {
+    color: #000000;
+}
+.xuremedcommunity {
+    display: grid;
+    align-content: center;
+}

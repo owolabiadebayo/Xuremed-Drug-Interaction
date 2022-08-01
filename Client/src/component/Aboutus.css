@@ -1,0 +1,14 @@
+.about-us-text {
+    text-align: start;
+}
+.aboutus {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+.imgabout {
+    width: 550px;
+    height: 312px;
+}

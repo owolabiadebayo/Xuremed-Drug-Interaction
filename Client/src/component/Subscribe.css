@@ -1,0 +1,32 @@
+.subscribediv {
+    height: 8vh;
+}
+.subscribedivmain {
+    padding: 5%;
+    padding-left: 23%;
+    padding-right: 23%;
+    background-color: #EFEFEF;
+}
+.subscribesecdiv {
+    background-color: #9FB1BF36;
+    height: auto;
+    display: grid;
+    align-items: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.x {
+    color: #00FF00;
+    font-size: 29px;
+    font-weight: bold;
+}
+.ure {
+    color: #03A9F4;
+    font-size: 29px;
+    font-weight: bold;
+}
+.med {
+    color: #000000;
+    font-size: 29px;
+    font-weight: bold;
+}

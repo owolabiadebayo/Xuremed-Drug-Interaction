@@ -1,0 +1,28 @@
+.inputbar{
+    width: 80%;
+}
+.Banner {
+    background: url(./Image/Banner1.jpg);
+    background-position: center;
+    height: 321px; 
+    width: 100%;
+    background-size: cover;
+    display: grid;
+    align-content: center;
+    color: white;
+}
+.Banner2 {
+    background: url(./Image/Banner2.jpg);
+    background-position: center;
+    top: 227px;
+    left: 267px;
+    width: 50%;
+    height: 108px;;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 2px;
+    background-size: cover;
+    border-radius: 10px;
+    margin-top: 1%;
+}
