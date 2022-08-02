@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import './Signin.css'
-import google from './Image/google.png'
-import apple from './Image/apple-logo.png'
 import axios from 'axios'
+import {ToastContainer} from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 const Modal = ({ onRequestClose }) => {
 	// Use useEffect to add an event listener to the document
@@ -40,15 +41,19 @@ const Modal = ({ onRequestClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            axios.post(
+          let res = await axios.post(
                 "http://127.0.0.1:8000/api/login/",
                 formData
-            ).then(res => {
-                console.log(res.data);
-            })
+            )
+            if (res) {
+                   window.localStorage.setItem('token', res.data)
+                   setTimeout(() => onRequestClose(), 1000);
+                   toast.success("login successfully")
+                   setTimeout(()=> window.location.href="/Dashboard", 500)
+            } 
         }
         catch (err) {
-            console.log(err);
+            if(err) toast.error('Invalid Email/Password try again..',{closeOnClick: true,});
         }
     }
 
@@ -56,6 +61,7 @@ const Modal = ({ onRequestClose }) => {
 		<div className="modal__backdrop">
 			<div className="modal__container">
                 <div class="container-fluid">
+                <ToastContainer position="top-center"/>
                     <div class="row">
                         <div class="col-sm-12 col-md-6 xuremedcommunity">
                         <h1><span className='x'>X</span><span className='ure'>ure</span><span className='med'>MED</span></h1>
@@ -67,9 +73,7 @@ const Modal = ({ onRequestClose }) => {
                                 <label className='loginemail'>Email</label><input onChange={handleChange} name="email" type='text' placeholder='Enter email address' className='emailsignin'/>
                                 <label className='loginemail'>Password</label><input onChange={handleChange} name="password" type='password' placeholder='Enter password' className='emailsignin'/>
                                 <input type="submit" className='emailsignup' value="Continue"/> 
-                                {/* <div className='googlesignup'><img className='googlesignupimage' src={google}></img>Sign up with Google</div> 
-                                <div className='googlesignup'><img className='applesignupimage' src={apple}></img>Sign up with Apple</div>
-                                <div className= 'services'>By signing up, you agree to the <span className='policyspan'>Terms of Services</span> and <span className='policyspan'>Privacy Policy</span></div> */}
+                                {/* <div className= 'services'>By signing up, you agree to the <span className='policyspan'>Terms of Services</span> and <span className='policyspan'>Privacy Policy</span></div> */}
                             </form>
                         </div>
                         </div>
