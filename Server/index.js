@@ -6,7 +6,7 @@ const {readdirSync} = require('fs')
 require('dotenv').config()
 
 
-mongoose.connect("mongodb+srv://Bayo4real:Bayo4real@hms.qg1nt.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect("mongodb+srv://brendanxure:xurecoder2022@cluster0.vzihnbw.mongodb.net/test", { useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => console.log('DB connected')).catch(err => console.log("DB connection",err))
 
 app.use(express.json())

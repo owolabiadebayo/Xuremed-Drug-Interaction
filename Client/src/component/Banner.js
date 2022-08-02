@@ -15,7 +15,9 @@ function Banner() {
   const [drugs, setdrug2] = useState(drug2)
   const [drugdata,setdrug] = useState([])
   const [disable,setDisable] = useState(false)
-  const [value, setValue] = useState("login")
+  const [value, setValue] = useState("search")
+  console.log(drug.drug1);
+  console.log(drugs.drug2);
   console.log(value);
   useEffect(() => {
 
@@ -25,10 +27,10 @@ function Banner() {
   
   
   const ddrug1 = (e) => {
-    console.log({...drug1, [e.target.name]: e.target.value})
+    setdrug1({...drug1, [e.target.name]: e.target.value})
   }
   const ddrug2 = (e) => {
-    console.log({...drug2, [e.target.name]: e.target.value})
+    setdrug2({...drug2, [e.target.name]: e.target.value})
   }
   const drugmap = drugdata.map((drug)=> drug.interaction1[0].name1)
   console.log(drugmap);
@@ -42,24 +44,22 @@ function Banner() {
   },[])
   const token = localStorage.getItem('token')
   useEffect(() => {
-    if (token.length > 7) {
+    if (!token) {
       setDisable(true);
-      setValue("Search")
+      setValue("Login")
       toast.success("Welcome back")
     }
   }, []);
- 
-
- 
-
- 
-  const myElement = drugmap.find((element) => element === drug)
+const myElement = drugmap.find((element) => element === drug.drug1)
   console.log(myElement);
-  const myElement2 = drugmap2.find((element) => element === drugs)
+const myElement2 = drugmap2.find((element) => element === drugs.drug2)
   console.log(myElement2);
+  const drugString =drug.drug1.toString()
+  const drugString2 = drugs.drug2.toString()
+  console.log(drugString);
 
-  const action = drugdata.filter((drug)=> drug.interaction1[0].name1 === drug && drug.interaction2[0].name2 === drugs)
- console.log(action);
+  const actionDrug = drugdata.filter((drug)=> drug.interaction1[0].name1 === '' && drug.interaction2[0].name2 === '')
+ console.log(actionDrug);
  
 
 
@@ -76,7 +76,7 @@ function Banner() {
           <form onSubmit={submit}>
         <input class="container inputbar form-control form-control-md" onChange={ddrug1} name='drug1' type="text" placeholder="Enter a drug, OTC and herbal supplement" aria-label=".form-control-lg example" />
         <input class="container inputbar form-control form-control-md" onChange={ddrug2} name='drug2' type="text" placeholder="Enter a drug, OTC and herbal supplement" aria-label=".form-control-lg example" />
-        <input type= 'submit' value={value} disabled={{disable}}/>
+        <input type= 'submit' value={value} disabled={disable}/>
         </form>
         </div>
         <div className='Banner3'>

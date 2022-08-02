@@ -126,12 +126,16 @@ const Modals = ({ onRequestClose }) => {
                     "http://127.0.0.1:8000/api/signup/",
                     formData
                 ).then(res => {
-                    console.log(res.data);
+                    setTimeout(onRequestClose(),1000)
+                    toast.success("Registered Successfully")
                 })
             }
             catch (err) {
-                console.log(err);
+                if(err) toast.error('Email already registered',{closeOnClick: true,});
             }
+        }
+        const closeButton = (e) => {
+            onRequestClose();
         }
 
 
@@ -149,9 +153,9 @@ const Modals = ({ onRequestClose }) => {
                      
                         <div className='signindiv'>
                         <form onSubmit={handleSubmit}>
-                        <label className='loginemail'>Email</label><input type='text' name='email' placeholder='Enter email address' value={formData.email} onChange={handleChange} className='emailsignin'/>
-                          <label className='loginemail'>Password</label><input type='text' name='password' placeholder='Enter password' value={formData.password} onChange={handleChange}className='emailsignin'/>
-                          <label className='loginemail'>Confirm Password</label><input type='text' placeholder='Enter password' className='emailsignin'/>
+                        <label className='loginemail'>Email</label><input type='email' name='email' placeholder='Enter email address' value={formData.email} onChange={handleChange} className='emailsignin' required/>
+                          <label className='loginemail'>Password</label><input type='password' name='password' placeholder='Enter password' value={formData.password} onChange={handleChange}className='emailsignin' required/>
+                          <button onClick={closeButton}>Close</button>
                           <div className= 'services'>By signing up, you agree to the <span className='policyspan'>Terms of Services</span> and <span className='policyspan'>Privacy Policy</span></div>
                           <h5 className='already'>Already have an account?</h5>
                           <input type="submit" className='googlesignup'/>
