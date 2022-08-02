@@ -8,7 +8,7 @@ import  {requiresignin} from '../middleware/index'
 
 router.post("/login", login)
 router.post("/signup",signup)
-router.post("/dashboard",dashboard)
+router.post("/dashboard",requiresignin,dashboard)
 router.get("/dashboard/fetchdrug",fetchDrug)
 
 module.exports = router;
