@@ -4,6 +4,7 @@ import './Banner.css'
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import {ToastContainer} from "react-toastify"
+import Result from './result';
 function Banner() {
   const drug1 = {
     drug1:""
@@ -56,24 +57,15 @@ const myElement2 = drugmap2.find((element) => element === drugs.drug2)
   console.log(myElement2);
   const drugString =drug.drug1.toString()
   const drugString2 = drugs.drug2.toString()
-  console.log(drugString);
-
-  const actionDrug = drugdata.filter((drug)=> drug.interaction1[0].name1 === '' && drug.interaction2[0].name2 === '')
- console.log(actionDrug);
+  const DrugResult = drugdata.filter((drug)=> drug.interaction1[0].name1 === drugString && drug.interaction2[0].name2 === drugString2)
  
-
-
-  const submit = (e) => {
-   e.preventDefault(); 
-
-  }
 
   return (
     <div className='Banner'>
         <h1>Drug Interaction Checker</h1>
         <ToastContainer position="top-center"/>
         <div className='Banner2 container'>
-          <form onSubmit={submit}>
+          <form>
         <input class="container inputbar form-control form-control-md" onChange={ddrug1} name='drug1' type="text" placeholder="Enter a drug, OTC and herbal supplement" aria-label=".form-control-lg example" />
         <input class="container inputbar form-control form-control-md" onChange={ddrug2} name='drug2' type="text" placeholder="Enter a drug, OTC and herbal supplement" aria-label=".form-control-lg example" />
         <input type= 'submit' value={value} disabled={disable}/>
@@ -81,6 +73,7 @@ const myElement2 = drugmap2.find((element) => element === drugs.drug2)
         </div>
         <div className='Banner3'>
         </div>
+        <Result DrugResult={DrugResult}/>
         
     </div>
   )

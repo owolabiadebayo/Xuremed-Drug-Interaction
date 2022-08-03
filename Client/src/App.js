@@ -1,24 +1,20 @@
 import './App.css';
-import Aboutus from './component/Aboutus';
-import Banner from './component/Banner';
-import Footer from './component/Footer';
-import Healthresources from './component/Health-resources';
-import Navbar from './component/Navbar';
-import Reviews from './component/Reviews';
-import Subscribe from './component/Subscribe';
+import Routerr from './route';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './Home';
 
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Banner></Banner>
-      <Aboutus></Aboutus>
-      <Healthresources/>
-      <Reviews/>
-      <Subscribe/>
-      <Footer/>
-    </div>
+    <>
+    <Router>
+      <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/route" element={<Routerr/>} />
+      </Routes>
+        
+        </Router>
+    </>
   );
 }
 

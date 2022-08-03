@@ -5,6 +5,7 @@ import axios from 'axios'
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
+import {Link} from 'react-router-dom'
 
 const Modal = ({ onRequestClose }) => {
 	// Use useEffect to add an event listener to the document
@@ -219,7 +220,9 @@ function Navbar() {
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-success me-5" type="submit">Search</button>
+                    <button class="btn btn-success me-5" type="submit" > <Link to="/route">
+                    About
+                  </Link></button>
                 </form>
                 </div>
             </div>
