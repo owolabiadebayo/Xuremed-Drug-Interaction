@@ -9,6 +9,7 @@ export const login = async (req, res) => {
     // const error = signinValidation(req.body);
     // if (error) return res.status(400).send(error.details[0].message);
     //check if user already exists
+    console.log(req.body.email);
     const confrimedUser = await signup.findOne({email:req.body.email});
     console.log(confrimedUser);
     if (!confrimedUser) return res.status(400).send('Email is wrong');

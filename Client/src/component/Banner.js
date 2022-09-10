@@ -17,27 +17,30 @@ function Banner() {
   const [drugdata,setdrug] = useState([])
   const [disable,setDisable] = useState(false)
   const [value, setValue] = useState("search")
-  console.log(drug.drug1);
-  console.log(drugs.drug2);
-  console.log(value);
-  useEffect(() => {
+  const [display, setDisplay] = useState(false)
 
-  }, [])
+  // console.log(drug.drug1);
+  // console.log(drugs.drug2);
+  // console.log(value);
+  // useEffect(() => {
+
+  // }, [])
  
 
   
   
   const ddrug1 = (e) => {
+    setDisplay(false)
     setdrug1({...drug1, [e.target.name]: e.target.value})
   }
   const ddrug2 = (e) => {
+    setDisplay(false)
     setdrug2({...drug2, [e.target.name]: e.target.value})
   }
-  const drugmap = drugdata.map((drug)=> drug.interaction1[0].name1)
-  console.log(drugmap);
-  const drugmap2 = drugdata.map((drug)=> drug.interaction2[0].name2)
-  console.log(drugmap2);
-
+  // const drugmap = drugdata.map((drug)=> drug.interaction1[0].name1)
+  // console.log(drugmap);
+  // const drugmap2 = drugdata.map((drug)=> drug.interaction2[0].name2)
+  // console.log(drugmap2);
   useEffect(()=>{
     axios.get("http://127.0.0.1:8000/api/dashboard/fetchdrug/").then (
       (res) => setdrug(res.data)
@@ -51,29 +54,33 @@ function Banner() {
       toast.success("Welcome back")
     }
   }, []);
-const myElement = drugmap.find((element) => element === drug.drug1)
-  console.log(myElement);
-const myElement2 = drugmap2.find((element) => element === drugs.drug2)
-  console.log(myElement2);
+// const myElement = drugmap.find((element) => element === drug.drug1)
+//   console.log(myElement);
+// const myElement2 = drugmap2.find((element) => element === drugs.drug2)
+//   console.log(myElement2);
   const drugString =drug.drug1.toString()
   const drugString2 = drugs.drug2.toString()
-  const DrugResult = drugdata.filter((drug)=> drug.interaction1[0].name1 === drugString && drug.interaction2[0].name2 === drugString2)
- 
-
+  const DrugResult = drugdata.filter((drug)=> drug.interaction1[0].name1 === drugString && drug.interaction2[0].name2 === drugString2 || drug.interaction2[0].name2 === drugString && drug.interaction1[0].name1 === drugString2)
+const handleSubmit = (e) => {
+  e.preventDefault()
+  setDisplay(true)
+  console.log("hello");
+}
+  
   return (
     <div className='Banner'>
         <h1>Drug Interaction Checker</h1>
         <ToastContainer position="top-center"/>
         <div className='Banner2 container'>
-          <form>
-        <input class="container inputbar form-control form-control-md" onChange={ddrug1} name='drug1' type="text" placeholder="Enter a drug, OTC and herbal supplement" aria-label=".form-control-lg example" />
-        <input class="container inputbar form-control form-control-md" onChange={ddrug2} name='drug2' type="text" placeholder="Enter a drug, OTC and herbal supplement" aria-label=".form-control-lg example" />
-        <input type= 'submit' value={value} disabled={disable}/>
+          <form className='Bannerform' >
+        <input class="container me-2 inputbar form-control form-control-md" onChange={ddrug1} name='drug1' type="text" placeholder="Enter a drug, OTC and herbal supplement" aria-label=".form-control-lg example" />
+        <input class="container inputbar me-2 form-control form-control-md" onChange={ddrug2} name='drug2' type="text" placeholder="Enter a drug, OTC and herbal supplement" aria-label=".form-control-lg example" />
+        <input type= 'submit' value={value} onClick={handleSubmit}/>
         </form>
         </div>
         <div className='Banner3'>
         </div>
-        <Result DrugResult={DrugResult}/>
+        {display === true ?  <Result DrugResult={DrugResult} /> : ""}
         
     </div>
   )

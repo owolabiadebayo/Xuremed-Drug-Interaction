@@ -17,11 +17,11 @@ function Result(props) {
     <div>
       {drugData ? drugData.map((drug,index) => {
         return (
-          <div className="container" key={index}>
-            <h1>{drug.interaction1[0].name1}</h1>
-            <h1>{drug.interaction2[0].name2}</h1>
-            <h1>{drug.interaction3[0].action}</h1>
-            <h1>{drug.interaction3[0].severity}</h1>
+          <div className="container resultdiv"  key={index}>
+            {/* <h1>{drug.interaction1[0].name1}</h1>
+            <h1>{drug.interaction2[0].name2}</h1> */}
+            <h3>{drug.interaction3[0].action}</h3>
+            <h3>{drug.interaction3[0].severity}</h3>
           </div>
         )
       }) : null}
