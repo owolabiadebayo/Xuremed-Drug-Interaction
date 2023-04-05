@@ -64,9 +64,9 @@ code {
 	margin-bottom: 25px;
 }
 
-button {
-	background: #8c54ff; 
-	/* border: 0;
+/* button {
+	background: #8c54ff;  
+	border: 0;
 	border-radius: 5px;
 	color: #fff;
 	cursor: pointer;
@@ -74,8 +74,8 @@ button {
 	font-weight: 600;
 	margin-bottom: 30px;
 	padding: 10px 15px;
-	transition: transform 100ms ease-out; */
-}
+	transition: transform 100ms ease-out;
+} */
 	
 button:hover {
 		/* background: #682ede; */
@@ -103,30 +103,39 @@ a:hover {
     height: 80vh;
     display: grid;
     align-content: space-around;
+	line-height: 40px;
 }
 .emailsignin {
   border: 1px solid; 
   border-color: black; 
   border-radius: 20px;
-  padding: 1vh;
+  padding-left: 2vh;
   width: 100%;
+  display: grid;
+
 }
 .loginemail {
 	text-align: left;
+}
+h1 {
+	display: flex;
 }
 .googlesignup {
   border: 1px solid; 
   border-color: #5940D1; 
   border-radius: 20px;
-  padding: 1vh;
+  padding: 0vh;
   cursor: pointer;
   width: 100%;
 }    
-.googlesignupimage {
+.googlesignup:hover {
+	transform: scale(1.1);
+}
+/* .googlesignupimage {
     height: 20px;
     width: 20px;
-}
-.applesignupimage {
+} */
+/* .applesignupimage {
     height: 20px;
     width: 20px;
 }
@@ -136,29 +145,38 @@ a:hover {
    border-bottom: 1px solid #000; 
    line-height: 0.1em;
    margin: 20px 0 20px; 
-}
-.orline span {
+} */
+/* .orline span {
     background:#fff; 
     padding:0 10px; 
-}
+} */
 .emailsignup {
     border: 2px solid; 
 	border-color: #5940D1;
     background: #5940D1; 
     border-radius: 20px;
-    padding: 1vh;
     color: #ffffff;
     cursor: pointer;
 	width: 100%;
+	margin-top: 20px;
+}
+.emailsignup:hover {
+transform: scale(1.1);
 }
 .services {
     color: #000000;
+	line-height: 20px;
+	padding-top: 20px;
 }
 .policyspan {
     color: #03A9F4;
 }
-.already {
+/* .already {
 	color: #000000;
 	display: grid;
 	justify-content: center;
+	padding-top: 15px;
+} */
+.xuremedcommunity {
+	display: grid;
 }

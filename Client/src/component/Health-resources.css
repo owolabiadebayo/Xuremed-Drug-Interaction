@@ -17,6 +17,11 @@ img {
     background-size: cover;
     color: white;
 }
+.divimg {
+    display: grid;
+    justify-items: center;
+}
+
 @media (max-width: 767.98px) {
     
  }

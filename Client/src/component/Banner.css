@@ -2,6 +2,11 @@
     width: 100%;
 }
 .Banner {
+    display: flex;
+    flex-grow: 1;
+    min-height: 45vh;
+}
+.Banner {
     background: url(./Image/Banner1.jpg);
     background-position: center;
     height: 321px; 
@@ -26,7 +31,7 @@
     border-radius: 10px;
     margin-top: 1%;
 }
-form {
+.Bannerform {
     display: flex;
     width: 100%;
     justify-content: space-between;

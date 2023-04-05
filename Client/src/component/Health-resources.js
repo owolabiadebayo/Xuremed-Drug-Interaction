@@ -9,9 +9,9 @@ function Healthresources() {
     <div className='background'>
         <h1>Health Resources</h1>
         <div className='Icons'>
-            <div><img src={drugs}/><h4>Find Drug </h4></div>
-            <div><img src={proteins}/><h4>Find Supplement</h4></div>
-            <div><img src={search}/><h4>Pill Checker</h4></div>
+            <div className='divimg'><img src={drugs}/><h4>Find Drug </h4></div>
+            <div className='divimg'><img src={proteins}/><h4>Find Supplement</h4></div>
+            <div className='divimg'><img src={search}/><h4>Pill Checker</h4></div>
         </div>
     </div>
   )

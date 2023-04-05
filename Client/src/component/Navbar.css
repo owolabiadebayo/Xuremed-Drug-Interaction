@@ -21,6 +21,18 @@
     color: #000000;
 }
 .xuremedcommunity {
-    display: grid;
+    display: flex;
     align-content: center;
+    justify-items: center;
+}
+.closebutton {
+    width: 70px;
+    margin-left: 94%;
+    align-items: center;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    border-color: #5940D1;
+    background-color: #5940D1;
+    border: #5940D1;
 }

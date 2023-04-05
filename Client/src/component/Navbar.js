@@ -5,6 +5,7 @@ import axios from 'axios'
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
+import {Link} from 'react-router-dom'
 
 const Modal = ({ onRequestClose }) => {
 	// Use useEffect to add an event listener to the document
@@ -56,11 +57,16 @@ const Modal = ({ onRequestClose }) => {
             if(err) toast.error('Invalid Email/Password try again..',{closeOnClick: true,});
         }
     }
+    const closeButton = (e) => {
+        onRequestClose();
+    }
+
 
 	return (
 		<div className="modal__backdrop">
 			<div className="modal__container">
                 <div class="container-fluid">
+                <button className='closebutton' onClick={closeButton}>Close</button>
                 <ToastContainer position="top-center"/>
                     <div class="row">
                         <div class="col-sm-12 col-md-6 xuremedcommunity">
@@ -144,6 +150,7 @@ const Modals = ({ onRequestClose }) => {
 		<div className="modal__backdrop">
 			<div className="modal__container">
                 <div class="container-fluid">
+                <button className='closebutton' onClick={closeButton}>Close</button>
                     <div class="row">
                         <div class="col-sm-12 col-md-6 xuremedcommunity">
                         <h1><span className='x'>X</span><span className='ure'>ure</span><span className='med'>MED</span></h1>
@@ -155,7 +162,6 @@ const Modals = ({ onRequestClose }) => {
                         <form onSubmit={handleSubmit}>
                         <label className='loginemail'>Email</label><input type='email' name='email' placeholder='Enter email address' value={formData.email} onChange={handleChange} className='emailsignin' required/>
                           <label className='loginemail'>Password</label><input type='password' name='password' placeholder='Enter password' value={formData.password} onChange={handleChange}className='emailsignin' required/>
-                          <button onClick={closeButton}>Close</button>
                           <div className= 'services'>By signing up, you agree to the <span className='policyspan'>Terms of Services</span> and <span className='policyspan'>Privacy Policy</span></div>
                           <h5 className='already'>Already have an account?</h5>
                           <input type="submit" className='googlesignup'/>
@@ -193,7 +199,7 @@ function Navbar() {
         {isModalOpen && <Modal onRequestClose={toggleModal} />}
         {isModalOpens && <Modals onRequestClose={toggleModals} />}
             <div class="container-fluid">
-                <a class="navbar-brand logo" href="#"><span className='x'>X</span><span className='ure'>ure</span><span className='med'>MED</span></a>
+                <a class="navbar-brand logo" href="#"><Link to='/'><span className='x'>X</span><span className='ure'>ure</span><span className='med'>MED</span></Link></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -219,7 +225,9 @@ function Navbar() {
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-success me-5" type="submit">Search</button>
+                    <button class="btn btn-success me-5" type="submit" > <Link to="/route">
+                    Search
+                  </Link></button>
                 </form>
                 </div>
             </div>
